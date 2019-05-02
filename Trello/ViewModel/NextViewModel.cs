@@ -11,17 +11,21 @@ namespace Trello.ViewModel
 {
     public class NextViewModel : ViewModelBase
     {
-       
+        private MainViewModel _mainViewModel;
         public string ScreenTitle { get; } = "Next Page!";
 
-    
+        public ICommand BackCommnd { get; private set; }
 
-        public NextViewModel()
+        public NextViewModel(MainViewModel mainViewModel)
         {
-           
+            _mainViewModel = mainViewModel;
 
-            NextCommnd = new RelayCommand(OnNextCommnd);
+            BackCommnd = new RelayCommand(OnBackCommnd);
         }
 
+        private void OnBackCommnd()
+        {
+            _mainViewModel.CurrentViewModel = ViewModelLocator.HomeViewModel;
+        }
     }
 }

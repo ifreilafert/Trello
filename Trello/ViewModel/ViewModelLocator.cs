@@ -55,7 +55,8 @@ namespace Trello.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        public NextViewModel NextViewModel
+
+        public static NextViewModel NextViewModel
         {
             get
             {
