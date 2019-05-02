@@ -12,7 +12,7 @@ namespace Trello.ViewModel
     public class HomeViewModel : ViewModelBase
     {
         private MainViewModel _mainViewModel;
-        public string ScreenTitle { get; } = "My Title";
+        public string ScreenTitle { get; } = "Trello Clone";
 
         public ICommand NextCommnd { get; private set; }
 
