@@ -70,9 +70,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\NextViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\NextView.xaml.cs">
+      <DependentUpon>NextView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +95,10 @@
     <Page Include="Resources\AppStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NextView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\HomeView.xaml">
       <SubType>Designer</SubType>

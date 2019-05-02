@@ -45,6 +45,7 @@ namespace Trello.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
+            SimpleIoc.Default.Register<NextViewModel>();
         }
 
         public MainViewModel Main
@@ -52,6 +53,13 @@ namespace Trello.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+        public NextViewModel Next
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<NextViewModel>();
             }
         }
 
