@@ -25,7 +25,7 @@ namespace Trello.ViewModel
 
         private void OnNextCommnd()
         {
-
+            _mainViewModel.CurrentViewModel = ViewModelLocator.NextViewModel;
         }
     }
 }

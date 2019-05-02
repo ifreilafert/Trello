@@ -14,4 +14,8 @@
     <DataTemplate DataType="{x:Type vm:HomeViewModel}">
         <views:HomeView />
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NextViewModel}">
+        <views:NextView />
+    </DataTemplate>
 </ResourceDictionary>
