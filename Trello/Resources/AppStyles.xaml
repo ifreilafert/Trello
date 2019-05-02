@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Trello.Resources"
+                    xmlns:views="clr-namespace:Trello.View"
+                    xmlns:vm="clr-namespace:Trello.ViewModel">
+    <SolidColorBrush x:Key="Illumina.Screen.Background.Brush" Color="#FFF0F0F0"/>
+
+    <LinearGradientBrush x:Key="ToolBarBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="#FFECECEC" />
+        <GradientStop Offset="0.8" Color="#FFaaaaaa" />
+        <GradientStop Offset="1" Color="#FFCDCECE" />
+    </LinearGradientBrush>
+
+    <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+        <views:HomeView />
+    </DataTemplate>
+</ResourceDictionary>
