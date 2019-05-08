@@ -33,7 +33,7 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="To Do" FontSize="28" Style="{DynamicResource TitleTextBlockStyle} " />
+                <TextBlock Text="To Do" FontSize="28" Style="{DynamicResource TitleTextBlockStyle}" />
                 <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                     <ItemsControl Grid.Row="1" ItemsSource="{Binding TodoItems}" ItemTemplate="{DynamicResource CardDataTemplate}" />
                 </ScrollViewer>
