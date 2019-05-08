@@ -1,31 +1,31 @@
 ﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+using System.Collections.ObjectModel;
+using Trello.Model;
 
 namespace Trello.ViewModel
 {
     public class HomeViewModel : ViewModelBase
     {
-        private MainViewModel _mainViewModel;
-        public string ScreenTitle { get; } = "Trello Clone";
-
-        public ICommand NextCommnd { get; private set; }
-
-        public HomeViewModel(MainViewModel mainViewModel)
+        public ObservableCollection<Card> TodoItems { get; private set; }
+        
+        public HomeViewModel()
         {
-            _mainViewModel = mainViewModel;
-
-            NextCommnd = new RelayCommand(OnNextCommnd);
+            CreateTodoItems();
         }
 
-        private void OnNextCommnd()
+        private void CreateTodoItems()
         {
+            TodoItems = new ObservableCollection<Card>();
 
+            var card = new Card("Buy tickets", "Caravan Palace in 'The Observatory'");
+            card.DueState = DueState.Expired;
+            TodoItems.Add(card);
+
+            card = new Card("Rent", "$150, Due by 01/01/2020");
+            TodoItems.Add(card);
+
+            card = new Card("Groceries list", "Milk, bread, buttermilk, feta cheese, olives.");
+            TodoItems.Add(card);
         }
     }
 }
