@@ -21,6 +21,7 @@ namespace Trello.ViewModel
             _mainViewModel = mainViewModel;
 
             BackCommnd = new RelayCommand(OnBackCommnd);
+
         }
 
         private void OnBackCommnd()
