@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Trello.Model;
 
 namespace Trello.ViewModel
 {
@@ -26,6 +27,7 @@ namespace Trello.ViewModel
         private void OnNextCommnd()
         {
             _mainViewModel.CurrentViewModel = ViewModelLocator.NextViewModel;
+            Card card = new Card("Test Title", "I am more than a description");
         }
     }
 }

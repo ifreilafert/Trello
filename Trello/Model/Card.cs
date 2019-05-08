@@ -13,6 +13,14 @@ namespace Trello.Model
         private DateTime _dateTime;
         private DateTime _dueByDate;
         private DateTime _completedDate;
+        private dueState _dueState;
+
+        public enum dueState
+        {
+            Ontime,
+            Expiring,
+            Expired 
+        }
         
         public string Title
         {
@@ -57,11 +65,20 @@ namespace Trello.Model
                 _completedDate = value;
             }
         }
+        public dueState DueState
+        {
+            get { return _dueState; }
+            set
+            {
+                _dueState = value;
+            }
+        }
 
-        public Card(string title, string description)
+        public Card(string title, string description = null)
         {
             _title = title;
             _description = description;
+            _dueState = dueState.Ontime;
         }
 
     }
