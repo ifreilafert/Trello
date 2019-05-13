@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\psatkunana\Source\Repos\Trello\Trello\obj\Debug\
+C:\Users\psatkunana\Source\Repos\Trello\Trello\obj\Release\
 Trello
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\psatkunana\Source\Repos\Trello\Trello\App.xaml
 3-1017080324
 
-14-1139062384
+9689870043
 71-1561062835
 MainWindow.xaml;Resources\AppStyles.xaml;View\HomeView.xaml;
 
