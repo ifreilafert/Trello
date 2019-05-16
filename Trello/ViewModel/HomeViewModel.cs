@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
 using Trello.Model;
 
@@ -7,7 +7,6 @@ namespace Trello.ViewModel
     public class HomeViewModel : ViewModelBase
     {
         public ObservableCollection<Card> TodoItems { get; private set; }
-        
         public HomeViewModel()
         {
             CreateTodoItems();
