@@ -16,22 +16,30 @@ namespace Trello.ViewModel
 
         public ICommand DeleteCommand { get; private set; }
 
+        public ICommand MoveCommand { get; private set; }
+
         public HomeViewModel(CardsManager cardsManager)
         {
-            _cardsManager = cardsManager;
+            _cardsManager = cardsManager;           
 
             DeleteCommand = new RelayCommand<Card>(OnDeleteCommand);
+            MoveCommand = new RelayCommand<Card>(OnMoveCommand);
 
-            _cardsManager.Load();
+            TodoItems = _cardsManager.Load();
 
             // TODO Delete CreateTodoItems when Load is implemented
-            CreateTodoItems();
+            //CreateTodoItems();
         }
 
         private void OnDeleteCommand(Card card)
         {
-            // TODO Delete item and save
-            _cardsManager.Save();
+            TodoItems.Remove(card);
+            _cardsManager.Save(TodoItems);
+        }
+
+        private void OnMoveCommand(Card card)
+        {
+            _cardsManager.Save(TodoItems);
         }
 
         private void CreateTodoItems()

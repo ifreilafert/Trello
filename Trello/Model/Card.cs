@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Trello.Model
 {
@@ -25,6 +25,11 @@ namespace Trello.Model
             CreatedDate = DateTime.Now;
             DueByDate = CreatedDate.AddDays(7);
             DueState = DueState.OnTime;
+        }
+
+        public Card()
+        {
+
         }
     }
 }
