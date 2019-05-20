@@ -4,13 +4,123 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Trello.View"
+             xmlns:myclass ="clr-namespace:Trello.ViewModel"
              DataContext="{Binding NextViewModel, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!-- this is a comment-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row ="0" Background="#bed8c2" BorderBrush="Aquamarine" BorderThickness="10"/>
         <TextBlock Text="{Binding ScreenTitle}" FontSize="40" HorizontalAlignment="Center" ToolTipService.ToolTip="{Binding ScreenTitle}" 
                    Margin="200,0,200,0" VerticalAlignment="Top" Foreground="Green" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
-        <Button Content="Back" MinWidth="100" MinHeight="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20"
+        <Grid Grid.Row = "1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column ="0" BorderBrush="Aquamarine" BorderThickness="10">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="LightCyan" Offset="0.0" />
+                        <GradientStop Color="LightBlue" Offset="0.5" />
+                        <GradientStop Color="DarkTurquoise" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border Grid.Column ="1" BorderBrush="Aquamarine" BorderThickness="10">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="LightCyan" Offset="0.0" />
+                        <GradientStop Color="LightBlue" Offset="0.5" />
+                        <GradientStop Color="DarkTurquoise" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border Grid.Column ="2" BorderBrush="Aquamarine" BorderThickness="10">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="LightCyan" Offset="0.0" />
+                        <GradientStop Color="LightBlue" Offset="0.5" />
+                        <GradientStop Color="DarkTurquoise" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Grid.Column=" 0" VerticalAlignment="Top">
+                    <TextBlock Foreground="DarkTurquoise" FontSize="25" Text="To Do" HorizontalAlignment="Center"/>
+                    <Button Content="Add Card" MinWidth="100" MinHeight="20" HorizontalAlignment="Right" Margin="10"
+                Command="{Binding AddDoCommnd}"/>
+                    <ItemsControl Grid.Column="0" ItemsSource="{Binding Path=CardListDo}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row ="0" Background="#144aa0" BorderThickness="3" CornerRadius="10"/>
+                                    <StackPanel Grid.Row=" 0" VerticalAlignment="Top">
+                                        <TextBlock Foreground="White" FontSize="20" Text="{Binding Title}" HorizontalAlignment="Left"/>
+                                        <TextBlock Foreground="White" FontSize="15" Text="{Binding Description}" HorizontalAlignment="Left"/>
+                                        <TextBlock Foreground="White" FontSize="15" Text="{Binding DueState}" HorizontalAlignment="Left"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+            <StackPanel Grid.Column=" 1" VerticalAlignment="Top">
+                <TextBlock Foreground="DarkTurquoise" FontSize="25" Text="Doing" HorizontalAlignment="Center"/>
+                <ItemsControl Grid.Column="1" ItemsSource="{Binding Path=CardListDoing}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row ="0" Background="#74a05b" BorderThickness="3" CornerRadius="10"/>
+                                <StackPanel Grid.Row=" 0" VerticalAlignment="Top">
+                                    <TextBlock Foreground="White" FontSize="20" Text="{Binding Title}" HorizontalAlignment="Left"/>
+                                    <TextBlock Foreground="White" FontSize="15" Text="{Binding Description}" HorizontalAlignment="Left"/>
+                                    <TextBlock Foreground="White" FontSize="15" Text="{Binding DueState}" HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel Grid.Column="2" VerticalAlignment="Top">
+                <TextBlock Foreground="DarkTurquoise" FontSize="25" Text="Done" HorizontalAlignment="Center"/>
+                <ItemsControl Grid.Column="2" ItemsSource="{Binding Path=CardListDone}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row ="0" Background="#74a05b" BorderThickness="3" CornerRadius="10"/>
+                                <StackPanel Grid.Row=" 0" VerticalAlignment="Top">
+                                    <TextBlock Foreground="White" FontSize="20" Text="{Binding Title}" HorizontalAlignment="Left"/>
+                                    <TextBlock Foreground="White" FontSize="15" Text="{Binding Description}" HorizontalAlignment="Left"/>
+                                    <TextBlock Foreground="White" FontSize="15" Text="{Binding DueState}" HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
+
+
+
+        </Grid>
+        <Button Grid.Row ="1" Content="Back" MinWidth="100" MinHeight="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20"
                 Command="{Binding BackCommnd}"/>
     </Grid>
+
 </UserControl>

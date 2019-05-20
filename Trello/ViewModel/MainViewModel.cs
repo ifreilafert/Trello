@@ -48,7 +48,7 @@ namespace Trello.ViewModel
 
         public void Next()
         {
-            CurrentViewModel = ViewModelLocator.HomeViewModel;
+            CurrentViewModel = ViewModelLocator.NextViewModel;
         }
     }
 }

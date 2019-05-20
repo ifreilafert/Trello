@@ -27,7 +27,6 @@ namespace Trello.ViewModel
         private void OnNextCommnd()
         {
             _mainViewModel.CurrentViewModel = ViewModelLocator.NextViewModel;
-            Card card = new Card("Test Title", "I am more than a description");
         }
     }
 }
