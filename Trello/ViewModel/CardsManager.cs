@@ -26,6 +26,10 @@ namespace Trello.ViewModel
                 dataList = cardString.Split(';');
                 cardLoaded.Title = dataList[0];
                 cardLoaded.Description = dataList[1];
+                if(DateTime.TryParse(dataList[2], out DateTime createdResult)){ cardLoaded.CreatedDate = createdResult; }
+                if(DateTime.TryParse(dataList[3], out DateTime completedResult)){ cardLoaded.CompletedDate = completedResult; }
+                if(Enum.TryParse(dataList[4], out DueState state)) { cardLoaded.DueState = state; }
+
                 TodoItems.Add(cardLoaded);
             }
 
@@ -34,16 +38,19 @@ namespace Trello.ViewModel
             
         }
 
-        public void Save(ObservableCollection<Card> cardList)
+        public void Save(params ObservableCollection<Card>[] collectionList)
         {
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "CardData.txt")))
-            {                
-                foreach(Card card in cardList)
-                {
-                    outputFile.WriteLine($"{card.Title};{card.Description}");                    
-                }
+            {
+                foreach (ObservableCollection<Card> collection in collectionList)
+                    {
+                        foreach (Card card in collection)
+                        {
+                            outputFile.WriteLine($"{card.Title};{card.Description};{card.CreatedDate};{card.CompletedDate};{card.DueState}");
+                        }
+                    }
             }
         }
     }

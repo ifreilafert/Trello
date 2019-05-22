@@ -33,7 +33,9 @@ namespace Trello.ViewModel
 
         private void OnDeleteCommand(Card card)
         {
-            TodoItems.Remove(card);
+            if (TodoItems != null) { TodoItems.Remove(card); }
+            if (DoingItems!= null) { DoingItems.Remove(card); }
+            if (CompletedItems != null) { CompletedItems.Remove(card); }
             _cardsManager.Save(TodoItems);
         }
 

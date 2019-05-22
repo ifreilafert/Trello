@@ -1,3 +1,2 @@
-Buy tickets;Caravan Palace in 'The Observatory'
-Groceries list;Milk, bread, buttermilk, feta cheese, olives.
-Shop for cars;RX350, RDX, Q5, XC60
+Buy tickets;Caravan Palace in 'The Observatory';5/1/2014 12:34:00 AM;6/1/2018 12:56:00 AM;OnTime
+Shop for cars;RX350, RDX, Q5, XC60;7/18/2010 12:15:00 AM;8/1/2020 12:25:00 AM;OnTime
