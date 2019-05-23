@@ -25,7 +25,9 @@ namespace Trello.ViewModel
             DeleteCommand = new RelayCommand<Card>(OnDeleteCommand);
             MoveCommand = new RelayCommand<Card>(OnMoveCommand);
 
-            TodoItems = _cardsManager.Load();
+            TodoItems = _cardsManager.Load()[0];
+            DoingItems = _cardsManager.Load()[1];
+            CompletedItems = _cardsManager.Load()[2];
 
             // TODO Delete CreateTodoItems when Load is implemented
             //CreateTodoItems();
@@ -36,7 +38,7 @@ namespace Trello.ViewModel
             if (TodoItems != null) { TodoItems.Remove(card); }
             if (DoingItems!= null) { DoingItems.Remove(card); }
             if (CompletedItems != null) { CompletedItems.Remove(card); }
-            _cardsManager.Save(TodoItems);
+            _cardsManager.Save(TodoItems,DoingItems,CompletedItems);
         }
 
         private void OnMoveCommand(Card card)
