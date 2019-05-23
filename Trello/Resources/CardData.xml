@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Collections>
+  <Collection List="Todo Items">
+    <Card>
+      <Title>Buy tickets</Title>
+      <Description>Caravan Palace in 'The Observatory'</Description>
+      <CreatedDate>2014-05-01T00:34:00</CreatedDate>
+      <CompletedDate>0001-01-01T00:00:00</CompletedDate>
+      <DueState>OnTime</DueState>
+    </Card>
+	    <Card>
+      <Title>Train for marathon</Title>
+      <Description>Run 10 miles</Description>
+      <CreatedDate>2010-07-18T00:15:00</CreatedDate>
+      <CompletedDate>2020-08-01T00:25:00</CompletedDate>
+      <DueState>OnTime</DueState>
+    </Card>
+	 <Card>
+      <Title>Shop for cars</Title>
+      <Description>RX350, XC60, Q5, RDX</Description>
+      <CreatedDate>2010-07-18T00:15:00</CreatedDate>
+      <CompletedDate>2020-08-01T00:25:00</CompletedDate>
+      <DueState>OnTime</DueState>
+    </Card>
+  </Collection>
+</Collections>

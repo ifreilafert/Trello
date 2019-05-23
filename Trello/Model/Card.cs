@@ -16,7 +16,7 @@ namespace Trello.Model
         public DateTime CreatedDate { get; set; }
         public DateTime DueByDate { get; set; }
         public DateTime CompletedDate { get; set; }
-        public DueState DueState { get; set; }
+        public DueState DueState { get; set; } 
 
         public Card(string title, string description = null)
         {
@@ -24,6 +24,15 @@ namespace Trello.Model
             Description = description;
             CreatedDate = DateTime.Now;
             DueByDate = CreatedDate.AddDays(7);
+            DueState = DueState.OnTime;
+        }
+
+        public Card(string title, string description = null, DateTime createdDate = default(DateTime), DateTime dueByDate = default(DateTime), DueState dueState = DueState.OnTime)
+        {
+            Title = title;
+            Description = description;
+            CreatedDate = createdDate;
+            DueByDate = dueByDate;
             DueState = DueState.OnTime;
         }
 
