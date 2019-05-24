@@ -38,7 +38,8 @@ namespace Trello.ViewModel
                     (string)el.Element("Description"),
                     (DateTime)el.Element("CreatedDate"),
                     (DateTime)el.Element("CompletedDate"),
-                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState"))
+                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState")),
+                    (CollectionEnum)Enum.Parse(typeof(CollectionEnum), (string)el.Element("CollectionEnum"))
                 );
 
             foreach (Card card in todoItemsList)
@@ -54,7 +55,8 @@ namespace Trello.ViewModel
                     (string)el.Element("Description"),
                     (DateTime)el.Element("CreatedDate"),
                     (DateTime)el.Element("CompletedDate"),
-                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState"))
+                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState")),
+                    (CollectionEnum)Enum.Parse(typeof(CollectionEnum), (string)el.Element("CollectionEnum"))
                 );
             
 
@@ -71,7 +73,8 @@ namespace Trello.ViewModel
                     (string)el.Element("Description"),
                     (DateTime)el.Element("CreatedDate"),
                     (DateTime)el.Element("CompletedDate"),
-                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState"))
+                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState")),
+                    (CollectionEnum)Enum.Parse(typeof(CollectionEnum), (string)el.Element("CollectionEnum"))
                 );
 
 
@@ -92,21 +95,6 @@ namespace Trello.ViewModel
         {
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "CardData.txt")))
-            {
-                foreach (ObservableCollection<Card> collection in collectionList)
-                {
-                    if (collection != null)
-                    {
-                        foreach (Card card in collection)
-                        {
-                            outputFile.WriteLine($"{card.Title};{card.Description};{card.CreatedDate};{card.CompletedDate};{card.DueState}");
-                        }
-                    }
-                }
-            }
-
-
             XDocument collectionXDoc = new XDocument();
             XElement rootElement = new XElement("Collections");
 
@@ -122,7 +110,8 @@ namespace Trello.ViewModel
                             new XElement("Description", card.Description),
                             new XElement("CreatedDate", card.CreatedDate),
                             new XElement("CompletedDate", card.CompletedDate),
-                            new XElement("DueState", card.DueState)
+                            new XElement("DueState", card.DueState),
+                            new XElement("CollectionEnum", card.CollectionEnum)
                             );
                         collectionElement.Add(cardElement);
                     }

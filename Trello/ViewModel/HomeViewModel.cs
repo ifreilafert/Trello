@@ -16,14 +16,21 @@ namespace Trello.ViewModel
 
         public ICommand DeleteCommand { get; private set; }
 
-        public ICommand MoveCommand { get; private set; }
+        public ICommand MoveToDoCommand { get; private set; }
+
+        public ICommand MoveToNextCommand { get; private set; }
+
+        public ICommand MoveToPriorCommand { get; private set; }
 
         public HomeViewModel(CardsManager cardsManager)
         {
             _cardsManager = cardsManager;           
 
             DeleteCommand = new RelayCommand<Card>(OnDeleteCommand);
-            MoveCommand = new RelayCommand<Card>(OnMoveCommand);
+            MoveToDoCommand = new RelayCommand<Card>(OnMoveToDoCommand);
+
+            MoveToNextCommand = new RelayCommand<Card>(OnMoveToNextCommand);
+            MoveToPriorCommand = new RelayCommand<Card>(OnMoveToPriorCommand);
 
             TodoItems = _cardsManager.Load()[0];
             DoingItems = _cardsManager.Load()[1];
@@ -41,9 +48,75 @@ namespace Trello.ViewModel
             _cardsManager.Save(TodoItems,DoingItems,CompletedItems);
         }
 
-        private void OnMoveCommand(Card card)
+        private void OnMoveToNextCommand(Card card)
         {
-            _cardsManager.Save(TodoItems);
+            if (!CompletedItems.Contains(card))
+            {
+                if (TodoItems.Contains(card))
+                {
+                    TodoItems.Remove(card);
+                    DoingItems.Add(card);
+                }
+
+                else if (DoingItems.Contains(card))
+                {
+                    DoingItems.Remove(card);
+                    CompletedItems.Add(card);
+                }
+            }
+            _cardsManager.Save(TodoItems, DoingItems, CompletedItems);
+        }
+
+        private void OnMoveToPriorCommand(Card card)
+        {
+            if (!TodoItems.Contains(card))
+            {
+                if (DoingItems.Contains(card))
+                {
+                    DoingItems.Remove(card);
+                    TodoItems.Add(card);
+                }
+
+                else if (CompletedItems.Contains(card))
+                {
+                    CompletedItems.Remove(card);
+                    DoingItems.Add(card);
+                }
+            }
+            _cardsManager.Save(TodoItems, DoingItems, CompletedItems);
+        }
+
+        private void OnMoveToDoCommand (Card card)
+        {
+            if (!TodoItems.Contains(card))
+            {
+                DoingItems.Remove(card);
+                CompletedItems.Remove(card);
+                TodoItems.Add(card);
+            }
+            _cardsManager.Save(TodoItems, DoingItems, CompletedItems);
+        }
+
+        private void OnMoveDoingCommand (Card card)
+        {
+            if (!DoingItems.Contains(card))
+            {
+                TodoItems.Remove(card);
+                CompletedItems.Remove(card);
+                DoingItems.Add(card);
+            }
+            _cardsManager.Save(TodoItems, DoingItems, CompletedItems);
+        }
+
+        private void OnMoveCompleteComamnd (Card card)
+        {
+            if (!CompletedItems.Contains(card))
+            {
+                TodoItems.Remove(card);
+                DoingItems.Remove(card);
+                CompletedItems.Add(card);
+            }
+            _cardsManager.Save(TodoItems, DoingItems, CompletedItems);
         }
 
         private void CreateTodoItems()

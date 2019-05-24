@@ -7,7 +7,6 @@
       <CreatedDate>2014-05-01T00:34:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>TodoItems</CollectionEnum>
     </Card>
     <Card>
       <Title>Train for marathon</Title>
@@ -15,7 +14,6 @@
       <CreatedDate>2010-07-18T00:15:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>TodoItems</CollectionEnum>
     </Card>
     <Card>
       <Title>Shop for cars</Title>
@@ -23,7 +21,6 @@
       <CreatedDate>2010-07-18T00:15:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>TodoItems</CollectionEnum>
     </Card>
   </Collection>
   <Collection List="DoingItems">
@@ -33,7 +30,6 @@
       <CreatedDate>2014-05-01T00:34:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>DoingItems</CollectionEnum>
     </Card>
 	 <Card>
       <Title>Championship b-ball game, EXOS</Title>
@@ -41,7 +37,6 @@
       <CreatedDate>2010-07-18T00:15:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>DoingItems</CollectionEnum>
     </Card>
     <Card>
       <Title>Water backyard</Title>
@@ -49,7 +44,6 @@
       <CreatedDate>2010-07-18T00:15:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>DoingItems</CollectionEnum>
     </Card>
   </Collection>
   <Collection List="CompletedItems">
@@ -59,7 +53,6 @@
       <CreatedDate>2014-05-01T00:34:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>CompletedItems</CollectionEnum>
     </Card>
     <Card>
       <Title>Wedding gift for Vit and Srujana</Title>
@@ -67,7 +60,6 @@
       <CreatedDate>2010-07-18T00:15:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>CompletedItems</CollectionEnum>
     </Card>
 	 <Card>
       <Title>Birthday gifts for Maliah and Jordan</Title>
@@ -75,7 +67,6 @@
       <CreatedDate>2010-07-18T00:15:00</CreatedDate>
       <CompletedDate>0001-01-01T00:00:00</CompletedDate>
       <DueState>OnTime</DueState>
-	  <CollectionEnum>CompletedItems</CollectionEnum>
     </Card>
   </Collection>
 </Collections>
