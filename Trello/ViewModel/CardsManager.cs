@@ -28,10 +28,16 @@ namespace Trello.ViewModel
             ObservableCollection<Card> TodoItems = new ObservableCollection<Card>();
             ObservableCollection<Card> DoingItems = new ObservableCollection<Card>();
             ObservableCollection<Card> CompletedItems = new ObservableCollection<Card>();
+            
+            var path = Path.Combine(docPath, "CardData.xml");
 
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Resources\CardData.xml");
+            if (!File.Exists(path))
+            {
+                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Resources\CardData.xml"), path);
+            }
 
-            XElement CardsXml = XElement.Load(path);
+            XElement CardsXml = XElement.Load(path/*(Path.Combine(docPath, "CardData.xml"))*/);
+
 
             IEnumerable<Card> todoItemsList =                
                 from el in CardsXml.Elements("Collection")
