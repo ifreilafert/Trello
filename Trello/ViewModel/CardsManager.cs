@@ -12,6 +12,7 @@ namespace Trello.ViewModel
 {
     public class CardsManager
     {
+        string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public enum CollectionEnum
         {
             TodoItems = 0,
@@ -28,7 +29,7 @@ namespace Trello.ViewModel
             ObservableCollection<Card> DoingItems = new ObservableCollection<Card>();
             ObservableCollection<Card> CompletedItems = new ObservableCollection<Card>();
 
-            XElement CardsXml = XElement.Load(@"Resources\CardData.xml");
+            XElement CardsXml = XElement.Load((Path.Combine(docPath, "CardData.xml")));
 
             IEnumerable<Card> todoItemsList =                
                 from el in CardsXml.Elements("Collection")
@@ -90,8 +91,6 @@ namespace Trello.ViewModel
 
         public void Save(params ObservableCollection<Card>[] collectionList)
         {
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
             XDocument collectionXDoc = new XDocument();
             XElement rootElement = new XElement("Collections");
 
