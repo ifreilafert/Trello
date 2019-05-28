@@ -7,6 +7,7 @@ using System.Text;
 using System.Xml;
 using System.Linq;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace Trello.ViewModel
 {
@@ -22,14 +23,15 @@ namespace Trello.ViewModel
 
         public ObservableCollection<Card>[] Load()
         {
-
             ObservableCollection<Card>[] collectionList = new ObservableCollection<Card>[3];
 
             ObservableCollection<Card> TodoItems = new ObservableCollection<Card>();
             ObservableCollection<Card> DoingItems = new ObservableCollection<Card>();
             ObservableCollection<Card> CompletedItems = new ObservableCollection<Card>();
 
-            XElement CardsXml = XElement.Load((Path.Combine(docPath, "CardData.xml")));
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Resources\CardData.xml");
+
+            XElement CardsXml = XElement.Load(path);
 
             IEnumerable<Card> todoItemsList =                
                 from el in CardsXml.Elements("Collection")
