@@ -55,12 +55,14 @@ namespace Trello.ViewModel
                 if (TodoItems.Contains(card))
                 {
                     TodoItems.Remove(card);
+                    card.CompletedState = CompletedState.Started;
                     DoingItems.Add(card);
                 }
 
                 else if (DoingItems.Contains(card))
                 {
                     DoingItems.Remove(card);
+                    card.CompletedState = CompletedState.Done;
                     CompletedItems.Add(card);
                 }
             }
@@ -74,12 +76,14 @@ namespace Trello.ViewModel
                 if (DoingItems.Contains(card))
                 {
                     DoingItems.Remove(card);
+                    card.CompletedState = CompletedState.NotStarted;
                     TodoItems.Add(card);
                 }
 
                 else if (CompletedItems.Contains(card))
                 {
                     CompletedItems.Remove(card);
+                    card.CompletedState = CompletedState.Started;
                     DoingItems.Add(card);
                 }
             }

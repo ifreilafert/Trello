@@ -47,7 +47,8 @@ namespace Trello.ViewModel
                     (string)el.Element("Description"),
                     (DateTime)el.Element("CreatedDate"),
                     (DateTime)el.Element("CompletedDate"),
-                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState"))                    
+                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState")),
+                    CompletedState.NotStarted
                 );
 
             foreach (Card card in todoItemsList)
@@ -63,7 +64,8 @@ namespace Trello.ViewModel
                     (string)el.Element("Description"),
                     (DateTime)el.Element("CreatedDate"),
                     (DateTime)el.Element("CompletedDate"),
-                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState"))                    
+                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState")),
+                    CompletedState.Started
                 );
             
 
@@ -80,7 +82,8 @@ namespace Trello.ViewModel
                     (string)el.Element("Description"),
                     (DateTime)el.Element("CreatedDate"),
                     (DateTime)el.Element("CompletedDate"),
-                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState"))                    
+                    (DueState)Enum.Parse(typeof(DueState), (string)el.Element("DueState")),
+                    CompletedState.Done
                 );
 
 

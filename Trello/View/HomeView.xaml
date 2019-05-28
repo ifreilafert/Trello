@@ -42,12 +42,12 @@
                                 Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}">
                             <Path Data="{DynamicResource DeleteIcon}" Width="15" Height="15" Fill="{StaticResource TitleForegroundBrush}" Stretch="Fill" />
                         </Button>
-                        <Button Width="30" Height="30" Style="{DynamicResource IconButtonStyle}" Margin="0"
+                        <Button x:Name="MoveToPrior" Width="30" Height="30" Style="{DynamicResource IconButtonStyle}" Margin="0"
                                 CommandParameter="{Binding .}"
                                 Command="{Binding DataContext.MoveToPriorCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}">
                             <Path Data="{DynamicResource ArrowLeftIcon}" Width="15" Height="15" Fill="{StaticResource TitleForegroundBrush}" Stretch="Fill" />
                         </Button>
-                        <Button Width="30" Height="30" Style="{DynamicResource IconButtonStyle}" Margin="0"
+                        <Button x:Name="MoveToNext" Width="30" Height="30" Style="{DynamicResource IconButtonStyle}" Margin="0"
                                 CommandParameter="{Binding .}"
                                 Command="{Binding DataContext.MoveToNextCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}">
                             <Path Data="{DynamicResource ArrowRightIcon}" Width="15" Height="15" Fill="{StaticResource TitleForegroundBrush}" Stretch="Fill" />
@@ -60,6 +60,12 @@
                     <Setter TargetName="MainBorder" Property="Background" Value="#FFf0f8fd"/>
                     <Setter TargetName="MainBorder" Property="Cursor" Value="Hand"/>
                 </Trigger>
+                <DataTrigger Binding="{Binding CompletedState}" Value="NotStarted">
+                    <Setter TargetName="MoveToPrior" Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CompletedState}" Value="Done">
+                    <Setter TargetName="MoveToNext" Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
             </DataTemplate.Triggers>
         </DataTemplate>
         <Style x:Key="TitleTextBlockStyle" TargetType="{x:Type TextBlock}">
